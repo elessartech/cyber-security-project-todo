@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<main class="row">
+	{% if request.user.is_authenticated %}
+		<div class="col-md-8">
+			<div class="card-wrap">
+				{% for item in list %}
+					<div class="card" style="width: 30em; margin: .5em auto;">
+						<div class="card-body">
+							<h5 class="card-title">{{item.title}}</h5>
+							<h6 class="card-subtitle mb-2 text-muted">{{item.date}}</h6>
+							<p class="card-text">{{item.details}}</p>
+							<form action="/del/{{item.id}}" method="POST">
+								{% csrf_token %}
+								<button class="btn btn-danger">Remove</a>
+							</form>
+						</div>
+					</div>
+				{% endfor%}
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="submit-form">
+				<form method="POST">
+					{% csrf_token %}
+					{{forms}}
+					<center>
+						<input type="submit" class="btn btn-default" placeholder="Submit" />
+					</center>
+				</form>
+			</div>
+		</div>
+	{% else %}
+		<div class="col-md-12">
+			<div class="alert alert-info">Please, authorize first!</div>
+		</div>
+	{% endif %}
+</main>
+{% endblock %}
