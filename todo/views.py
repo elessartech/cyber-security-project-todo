@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django_ratelimit.decorators import ratelimit
+#from django_ratelimit.decorators import ratelimit
 from .forms import TodoForm, UserCreationForm, LoginForm
 from .models import Todo
 
@@ -25,6 +25,11 @@ def index(request):
 
 
 def remove(request, item_id):
+    #if request.method == "POST" and request.user:
+    #     id_value = request.POST.get('id')
+    #     item = Todo.objects.get(id=id_value, creator=request.user)
+    #     item.delete()
+    #     messages.info(request, "Todo was deleted.")
     todos = Todo.objects.raw(f"SELECT * FROM todo_todo WHERE id={item_id};")
     for todo in todos:
         todo.delete()

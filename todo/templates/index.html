@@ -12,10 +12,12 @@
 							<h5 class="card-title">{{item.title}}</h5>
 							<h6 class="card-subtitle mb-2 text-muted">{{item.date}}</h6>
 							<p class="card-text">{{item.details}}</p>
-							<form action="/del/{{item.id}}" method="POST">
+							<a class="btn btn-danger" href="/del/{{item.id}}">Remove</a>
+							<!--<form action="/del/{{item.id}}" method="POST">
 								{% csrf_token %}
+								<input type="hidden" name="id" value="{{item.id}}">
 								<button class="btn btn-danger">Remove</a>
-							</form>
+							</form> -->
 						</div>
 					</div>
 				{% endfor%}
