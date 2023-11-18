@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-#from django_ratelimit.decorators import ratelimit
+
+# from django_ratelimit.decorators import ratelimit
 from .forms import TodoForm, UserCreationForm, LoginForm
 from .models import Todo
 
@@ -25,7 +26,7 @@ def index(request):
 
 
 def remove(request, item_id):
-    #if request.method == "POST" and request.user:
+    # if request.method == "POST" and request.user:
     #     id_value = request.POST.get('id')
     #     item = Todo.objects.get(id=id_value, creator=request.user)
     #     item.delete()
@@ -47,7 +48,8 @@ def user_signup(request):
         form = UserCreationForm()
     return render(request, "signup.html", {"form": form})
 
-#@ratelimit(key='ip', rate='5/m', method='POST', block=True)
+
+# @ratelimit(key='ip', rate='5/m', method='POST', block=True)
 def user_login(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
