@@ -16,6 +16,10 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+#SECRET_KEY = "django-insecure-e9_5d@ob!!x79%ajz$a0kfm8nf_8pzekwck#i=@vgkrp$mar8v" # set to be much more complexed
+#ALLOWED_HOSTS = [] # allowed hosts are properly specified to include relevant ip addresses
+#DEBUG = False # set to false for the production mode
+
 SECRET_KEY = "MY_SECRET_KEY"
 DEBUG = True
 ALLOWED_HOSTS = ["*"]
