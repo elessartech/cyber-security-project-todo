@@ -52,7 +52,15 @@ The `@ratelimit` decorator in Django apps can be used to mitigate brute force at
 
 ### 3. Broken Access Control
 
-exact source link pinpointing flaw 3
+[exact source link pinpointing flaw 3](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L19)
+
+[exact source link pinpointing fix for the flaw 3](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/forms.py#L11)
+
+Broken Access Control is a security vulnerability that occurs when an app allows users to perform actions or access resources that they should not be authorized to operate with. It may happen when the access control mechanisms are not adjusted, what may lead to potential security breaches. 
+
+For this application in particular, there is a form that can be found on the user page once authorized, that allows users to create todo tasks and contains the input field `creator`, that signifies the creator of the todo. Initially, this field contains the list of all created users, so anyone from the list can be chosen as the todos creator, what could be used by intruders for example to organize a spam attack assigning numerous todos to a user who has had no intention of creating them. 
+
+Therefore, this issue can be mitigated by limiting the content of the `creator`-selector element to contain only the currently authorized user. Thus, intruders will no longer be capable of exploiting the misconfiguration to generate endless amount of todos on someone else's behalf. 
 
 ### 4. Security Misconfiguration
 
