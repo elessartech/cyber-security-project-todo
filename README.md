@@ -72,7 +72,17 @@ Lastly, allowing any host `["*"]` in the `ALLOWED_HOSTS` parameter setting is al
 
 ### 5. Sensitive Data Exposure
 
-[exact source link pinpointing flaw 1](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L34)
+[exact source link pinpointing flaw 5](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L34)
 
-[exact source link pinpointing fix for the flaw 1](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L29)
+[exact source link pinpointing flaw 5(template)](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/templates/index.html#L15)
+
+[exact source link pinpointing fix for the flaw 5](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L29)
+
+[exact source link pinpointing fix for the flaw 5(template)](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/templates/index.html#L16)
+
+Sensitive Data Exposure is a type of vulnerability by exploiting which an intruder may get access to various kinds of sensitive information such as personal identification data, financial information, authentication credentials or any other information that, if disclosed, may lead to harm or unauthorized access.
+
+For this application, it is possible for users to delete their created todos by clicking onto `Remove`-button. However, the delete action is triggered by `<a>` element with an `href` attribute pointing to the delete endpoint, where the sensitive information such as the item ID, is visible in the browser's address bar. In addition to that, the item ID is very predictable, meaning that is just an integer number that gets incremented by 1 each time a new todo is saved in the database. All the aforementioned can lead to serious security vulnerabilities for an instance if an attacker manipulates the URL parameters and inserts some malicious Javascript code in there, especially taking into an account that CSRF protection is not applied for the GET-requests.
+
+In order to fix that, there are such practices to introduce as making a delete action triggered by a `<form>` element with the method set to POST simultaneusly including item ID as a hidden input field, which will subsequently also hide any sensitive information from the exposal in the URL. The use of a form will also protect against Cross-Site Request Forgery attacks by including the CSRF token (`{% csrf_token %}`) in the form. Additionally, would be beneficial to generate item IDs as random strings making them much less predictable for intruders.
 

@@ -9,14 +9,14 @@ from .models import Todo
 
 def index(request):
     if request.method == "POST":
-        form = TodoForm(request.POST)
+        form = TodoForm(request.POST, creator=request.user)
         if form.is_valid():
             form.save()
             return redirect("/")
     item_list = []
     if request.user.id:
         item_list = Todo.objects.filter(creator=request.user).order_by("-date")
-    form = TodoForm()
+    form = TodoForm(creator=request.user)
     page = {
         "forms": form,
         "list": item_list,
