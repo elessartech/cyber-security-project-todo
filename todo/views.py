@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
 # from django_ratelimit.decorators import ratelimit
 from .forms import TodoForm, UserCreationForm, LoginForm
@@ -9,14 +10,25 @@ from .models import Todo
 
 def index(request):
     if request.method == "POST":
-        form = TodoForm(request.POST, creator=request.user)
+        submitted_user = request.user
+        #if not submitted_user.is_authenticated:
+        #    messages.error(request, "Authentication failure")
+        #    return redirect("/")
+        #try:
+        #    user = User.objects.get(id=submitted_user.id, username=submitted_user.username)
+        #except User.DoesNotExist:
+        #    messages.error(request, "Invalid user")
+        #    return redirect("/")
+        form = TodoForm(request.POST)
         if form.is_valid():
-            form.save()
+            #form.save(user)
+            form.save(submitted_user)
+            messages.info(request, "Todo created")
             return redirect("/")
     item_list = []
     if request.user.id:
         item_list = Todo.objects.filter(creator=request.user).order_by("-date")
-    form = TodoForm(creator=request.user)
+    form = TodoForm()
     page = {
         "forms": form,
         "list": item_list,

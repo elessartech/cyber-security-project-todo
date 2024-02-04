@@ -58,9 +58,9 @@ The `@ratelimit` decorator in Django apps can be used to mitigate brute force at
 
 Broken Access Control is a security vulnerability that occurs when an app allows users to perform actions or access resources that they should not be authorized to operate with. It may happen when the access control mechanisms are not properly adjusted, what may lead to potential security breaches. 
 
-For this application in particular, there is a form that can be found on the user page once authorized, that allows users to create todo tasks and contains the input field `creator`, that signifies the creator of the todo. Initially, this field contains the list of all created users, so anyone from the list can be chosen as the todos creator, what could be used by intruders for example to organize a spam attack assigning numerous todos to a user who has had no intention of creating them. 
+For this application in particular, there is a form that can be found on the user page once authorized, that allows users to create todo tasks. Initially, the code does not contain any authentication checks, meaning that any user, whether authenticated or not, can submit data to create a Todo item. Additionally, the user validation checks are also missing. Without these checks, there's no verification that the user submitted as the Todo item creator actually exists in the system. The aforementioned may potentially lead to the code allowing the creation of Todo items without properly verifying the user's identity or checking if the user has the necessary permissions, signifying the Broken Access Control-vulnerability.
 
-Therefore, this issue can be mitigated by limiting the content of the `creator`-selector element to contain only the currently authorized user. Thus, intruders will no longer be capable of exploiting the misconfiguration to generate endless amount of todos on someone else's behalf. 
+Therefore, this issue can be mitigated by installing additional authentications checks and verifications. Thus, intruders will no longer be capable of exploiting this misconfiguration and prevent the unauthorized users from creating Todo items and this way violating proper access controls.
 
 ### 4. Security Misconfiguration
 
