@@ -21,8 +21,8 @@ def index(request):
         #    return redirect("/")
         form = TodoForm(request.POST)
         if form.is_valid():
-            #form.save(user)
-            form.save(submitted_user)
+            #form.save(user) # to be uncommented out when testing the fix for the 3. Broken Access Control
+            form.save(submitted_user) # to be commented out when testing the fix for the 3. Broken Access Control
             messages.info(request, "Todo created")
             return redirect("/")
     item_list = []
