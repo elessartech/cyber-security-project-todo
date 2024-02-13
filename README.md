@@ -1,6 +1,6 @@
 # Cyber Security Base: Project
 
-This repository contains the intentionally made vulneruble app that was developer for the project part of the [cyber security base 2023 course](https://cybersecuritybase.mooc.fi/module-3.1) by University of Helsinki. The app contains 5 different flaws from the [OWASP top ten list](https://owasp.org/www-project-top-ten/) as well as their fixes.
+This repository contains the intentionally made vulneruble app that was developer for the project part of the [cyber security base 2024 course](https://cybersecuritybase.mooc.fi/module-3.1) by University of Helsinki. The app contains 5 different flaws from the [OWASP top ten list](https://owasp.org/www-project-top-ten/) as well as their fixes.
 
 ## Installation Instructions
 
