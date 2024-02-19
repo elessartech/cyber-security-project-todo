@@ -62,7 +62,7 @@ Broken Access Control is a security vulnerability that occurs when an app allows
 
 For this application in particular, there is a form that can be found on the user page once authorized, that allows users to create todo tasks. Initially, the code does not contain any authentication checks, meaning that any user, whether authenticated or not, can submit data to create a Todo item. Additionally, the user validation checks are also missing. Without these checks, there's no verification that the user submitted as the Todo item creator actually exists in the system. The aforementioned may potentially lead to the code allowing the creation of Todo items without properly verifying the user's identity or checking if the user has the necessary permissions, signifying the Broken Access Control-vulnerability.
 
-Therefore, this issue can be mitigated by installing additional authentications checks and verifications. Thus, intruders will no longer be capable of exploiting this misconfiguration and prevent the unauthorized users from creating Todo items and this way violating proper access controls.
+Therefore, this issue can be mitigated by installing additional authentication checks and verifications. Thus, intruders will no longer be capable of exploiting this misconfiguration and prevent the unauthorized users from creating Todo items and this way violating proper access controls.
 
 ### 4. Security Misconfiguration
 
