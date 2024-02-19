@@ -54,9 +54,9 @@ The `@ratelimit` decorator in Django apps can be used to mitigate brute force at
 
 [exact source link pinpointing flaw 3](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L22)
 
-[exact source link pinpointing fix for the flaw 3(start)](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/forms.py#L14)
+[exact source link pinpointing fix for the flaw 3(start)](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L14)
 
-[exact source link pinpointing fix for the flaw 3(end)](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/forms.py#L21)
+[exact source link pinpointing fix for the flaw 3(end)](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L24)
 
 Broken Access Control is a security vulnerability that occurs when an app allows users to perform actions or access resources that they should not be authorized to operate with. It may happen when the access control mechanisms are not properly adjusted, what may lead to potential security breaches. 
 
