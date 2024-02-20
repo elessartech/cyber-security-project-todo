@@ -42,9 +42,9 @@ The aforementioned can be fixed by using the Django ORM with parameterized queri
 
 ### 2. Broken Authentication
 
-[exact source link pinpointing flaw 2(whole user_login() function)](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L53)
+[exact source link pinpointing flaw 2(whole user_login() function)](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L65)
 
-[exact source link pinpointing fix for the flaw 2](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L52)
+[exact source link pinpointing fix for the flaw 2](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L64)
 
 Broken authentication refers to security vulnerability in the app logics responsible for user authentication and session handling. It can lead to severe security breaches such as unauthorized access to app user accounts, identity disclosure etc. One common scenario is when an intruder can brute force user credentials by exploiting not defensive enough authentication mechanisms. If the application allows unlimited number of login attempts, it may be potentially vulnerable to such attacks, since then an attacker can be endlessly trying various combinations until the correct one is found.
 
@@ -82,11 +82,11 @@ Eventually, allowing any host `["*"]` in the `ALLOWED_HOSTS` parameter setting i
 
 ### 5. Sensitive Data Exposure
 
-[exact source link pinpointing flaw 5](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L34)
+[exact source link pinpointing flaw 5](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L46)
 
 [exact source link pinpointing flaw 5(template)](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/templates/index.html#L15)
 
-[exact source link pinpointing fix for the flaw 5](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L29)
+[exact source link pinpointing fix for the flaw 5](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L41)
 
 [exact source link pinpointing fix for the flaw 5(template)](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/templates/index.html#L16)
 
