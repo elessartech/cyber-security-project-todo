@@ -30,9 +30,9 @@ This repository contains the intentionally made vulneruble app that was develope
 
 ### 1. Injection
 
-[exact source link pinpointing flaw 1](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L34)
+[exact source link pinpointing flaw 1](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L46)
 
-[exact source link pinpointing fix for the flaw 1](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L31)
+[exact source link pinpointing fix for the flaw 1](https://github.com/elessartech/cyber-security-project-todo/blob/main/todo/views.py#L43)
 
 Injection refers to a set of security vulnerabilities where an intruder is able to insert potentially malicious data or code into the applications ecosystem. It may be performed via for example unauthorized access, data manipulation or the execution of commands that are not to be executed in a particular scenario. The main purpose of injection intrusions is to exploit app vulnerabilities and achieve the execution of unintended and potentially harmful actions.
 
